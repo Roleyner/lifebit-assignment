@@ -21,3 +21,7 @@ variable "ami" {
 variable "instance_type" {
   description = "Type of instance in terms of resources given"
 }
+
+variable "vm_user" {
+  description = "User that is used inside of the vm"
+}
