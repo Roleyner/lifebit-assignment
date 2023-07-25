@@ -45,3 +45,17 @@ Once the steps mentioned above have been performed, the whole stack will be prov
 ## Access to the NodeJS app
 
 Either *ansible-playbook* output or terraform output will provide us with the instance public IP to be able to use it along with the port **3000**
+
+
+## Access to the VM via SSH
+
+As a private key named *nodejs-key* gets created through terraform into the same repo root directory, we can also leverage it for sshing to the EC2 instance as follows:
+
+`ssh -i nodejs-key vm_user@vm_ipv4_dns`
+
+Both *vm_user* and *vm_ipv4_dns* get outputted by terraform after applying changes to the infrastructure.
+
+
+### Caveat
+
+It's importante to tear down all the AWS resources used for this implementation, hence `terraform destroy` needs to be performed :)
